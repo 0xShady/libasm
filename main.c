@@ -3,18 +3,18 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct	s_list
+{
+	void			*data;
+	struct s_list	*next;
+}				t_list;
+
 ssize_t     ft_write(int fd, char const *buf, size_t nbyte);
 ssize_t     ft_read(int fd, char const *buf, size_t nbyte);
 size_t	    ft_strlen(char const *str);
 int         ft_strcmp(char *a, char *b);
 char        *ft_strdup(char *a);
 int         ft_list_size(t_list *list);
-
-typedef struct	s_list
-{
-	void			*data;
-	struct s_list	*next;
-}				t_list;
 
 int main()
 {
@@ -27,11 +27,10 @@ int main()
 	list_1.next = &list_2;
 	list_2.data = strdup("bbb");
 	list_2.next = NULL;
-	///////////////////////////
-
 	int size = ft_list_size(&list);
 	printf ("%d\n",size);
-	char *x = ft_strdup("aaa->>");
+	char *x = ft_strdup("aaa");
 	printf("%s\n",x);
+	ft_write(1, "ft_write test \n", 30);
 	return 0;
 }
